@@ -9,7 +9,7 @@
       --maize: #ffcb05;
       --blue: #00274c;
       --text: #1f2933;
-      --muted: #667085;
+      --muted: #44515f;
       --border: #d8dee4;
       font-family: "Trebuchet MS", "Segoe UI", sans-serif;
     }
@@ -23,6 +23,7 @@
       min-height: 100vh;
       background: #f6f8fa;
       color: var(--text);
+      font-size: 18px;
     }
 
     body::before,
@@ -48,45 +49,6 @@
       bottom: 44px;
       background: var(--blue);
       opacity: 0.1;
-    }
-
-    .topbar {
-      border-bottom: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.9);
-      padding: 14px 24px;
-    }
-
-    .topbar-inner {
-      width: min(1160px, 100%);
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--blue);
-      font-weight: 700;
-    }
-
-    .brand-mark {
-      width: 26px;
-      height: 26px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--blue);
-      color: var(--maize);
-      font-size: 0.7rem;
-    }
-
-    .nav-note {
-      color: var(--muted);
-      font-size: 0.86rem;
     }
 
     .page {
@@ -133,14 +95,14 @@
     .profile p {
       margin: 0 0 16px;
       line-height: 1.55;
-      font-size: 0.92rem;
+      font-size: 1rem;
     }
 
     .profile-meta {
       padding-top: 16px;
       border-top: 1px solid var(--border);
       color: var(--muted);
-      font-size: 0.84rem;
+      font-size: 0.95rem;
       line-height: 1.9;
     }
 
@@ -173,7 +135,7 @@
     p.lead {
       margin: 0;
       color: var(--muted);
-      font-size: 0.96rem;
+      font-size: 1.1rem;
       line-height: 1.65;
       max-width: 700px;
     }
@@ -208,8 +170,35 @@
     .footer-notes {
       margin-top: 16px;
       color: var(--muted);
-      font-size: 0.86rem;
+      font-size: 1rem;
       line-height: 1.6;
+    }
+
+    .personal-note {
+      max-width: 720px;
+      margin: 24px auto 0;
+      text-align: left;
+    }
+
+    .clickable-node circle {
+      transition: fill 220ms ease, stroke 220ms ease;
+    }
+
+    .node-arrow {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 220ms ease;
+    }
+
+    .clickable-node:hover circle,
+    .clickable-node:focus-visible circle {
+      fill: #dceeff;
+      stroke: var(--blue);
+    }
+
+    .clickable-node:hover .node-arrow,
+    .clickable-node:focus-visible .node-arrow {
+      opacity: 1;
     }
 
     .legend strong,
@@ -242,10 +231,6 @@
     }
 
     @media (max-width: 860px) {
-      .topbar {
-        padding: 12px 16px;
-      }
-
       .page {
         padding: 24px 12px 32px;
         grid-template-columns: 1fr;
@@ -280,32 +265,20 @@
         padding: 12px;
       }
 
-      .nav-note {
-        display: none;
-      }
     }
   </style>
 </head>
 <body>
-  <nav class="topbar" aria-label="Site navigation">
-    <div class="topbar-inner">
-      <div class="brand"><span class="brand-mark">SA</span> sohaibali2007.github.io</div>
-      <span class="nav-note">Electrical engineering - projects - experiments</span>
-    </div>
-  </nav>
-
   <main class="page">
     <aside class="profile">
       <div class="avatar" role="img" aria-label="Profile picture template">SA</div>
       <div>
         <h1>Sohaib Ali</h1>
-        <p class="handle">sohaibali2007</p>
-        <p>University of Michigan CS '29</p>
+        <p class="handle">Computer hardware, software, and whatever I am building next.</p>
+        <p>I like understanding how things work, whether I can hold them in my hand or open them in a code editor.</p>
       </div>
       <div class="profile-meta">
-        <div>Michigan, USA</div>
-        <div>Electrical engineering</div>
-        <div>Hardware + software</div>
+        <div>Rising sophomore at the University of Michigan- Ann Arbor</div>
       </div>
     </aside>
 
@@ -313,7 +286,7 @@
       <header>
         <p class="eyebrow">Personal project workspace</p>
         <h2>Arduino circuit notes</h2>
-        <p class="lead">A small interactive map of the pins and connections I use while building electronics projects.</p>
+        <p class="lead">I am currently learning electronics using an Arduino ESP32 and building personal projects.</p>
       </header>
 
       <section class="diagram" aria-label="Arduino schematic diagram layout">
@@ -370,8 +343,8 @@
           <text x="160" y="670" text-anchor="middle" font-size="18" font-weight="700">RESET</text>
           <text x="160" y="700" text-anchor="middle" font-size="14" fill="#667085">Board reset</text>
 
-          <text x="1040" y="180" text-anchor="middle" font-size="18" font-weight="700">TX</text>
-          <text x="1040" y="210" text-anchor="middle" font-size="14" fill="#667085">Serial</text>
+            <text x="1040" y="180" text-anchor="middle" font-size="12" font-weight="700">My favorite personal things!</text>
+            <text x="1040" y="210" text-anchor="middle" font-size="14" fill="#667085">Personal</text>
 
           <text x="1040" y="320" text-anchor="middle" font-size="18" font-weight="700">RX</text>
           <text x="1040" y="350" text-anchor="middle" font-size="14" fill="#667085">Serial</text>
@@ -387,41 +360,44 @@
           <path d="M 945 330 H 930" />
         </g>
 
-        <a xlink:href="5v.html">
+        <a class="clickable-node" xlink:href="5v.html">
           <circle cx="257" cy="172" r="18" fill="#fff7d6" stroke="#ffcb05" stroke-width="2" filter="url(#glow)" />
+          <path class="node-arrow" d="M 249 172 H 265 M 260 167 L 265 172 L 260 177" stroke="#00274c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
         </a>
-        <a xlink:href="gnd.html">
+        <a class="clickable-node" xlink:href="gnd.html">
           <circle cx="257" cy="285" r="18" fill="#fff7d6" stroke="#ffcb05" stroke-width="2" filter="url(#glow)" />
+          <path class="node-arrow" d="M 249 285 H 265 M 260 280 L 265 285 L 260 290" stroke="#00274c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
         </a>
-        <a xlink:href="d13.html">
+        <a class="clickable-node" xlink:href="d13.html">
           <circle cx="257" cy="405" r="18" fill="#fff7d6" stroke="#ffcb05" stroke-width="2" filter="url(#glow)" />
+          <path class="node-arrow" d="M 249 405 H 265 M 260 400 L 265 405 L 260 410" stroke="#00274c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
         </a>
-        <a xlink:href="d10.html">
+        <a class="clickable-node" xlink:href="d10.html">
           <circle cx="257" cy="515" r="18" fill="#fff7d6" stroke="#ffcb05" stroke-width="2" filter="url(#glow)" />
+          <path class="node-arrow" d="M 249 515 H 265 M 260 510 L 265 515 L 260 520" stroke="#00274c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
         </a>
-        <a xlink:href="reset.html">
+        <a class="clickable-node" xlink:href="reset.html">
           <circle cx="257" cy="645" r="18" fill="#fff7d6" stroke="#ffcb05" stroke-width="2" filter="url(#glow)" />
+          <path class="node-arrow" d="M 249 645 H 265 M 260 640 L 265 645 L 260 650" stroke="#00274c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
         </a>
-        <a xlink:href="tx.html">
+        <a class="clickable-node" xlink:href="tx.html" aria-label="My favorite personal things">
           <circle cx="930" cy="210" r="18" fill="#fff7d6" stroke="#ffcb05" stroke-width="2" filter="url(#glow)" />
+          <path class="node-arrow" d="M 922 210 H 938 M 933 205 L 938 210 L 933 215" stroke="#00274c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
         </a>
-        <a xlink:href="rx.html">
+        <a class="clickable-node" xlink:href="rx.html">
           <circle cx="930" cy="330" r="18" fill="#fff7d6" stroke="#ffcb05" stroke-width="2" filter="url(#glow)" />
+          <path class="node-arrow" d="M 922 330 H 938 M 933 325 L 938 330 L 933 335" stroke="#00274c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
         </a>
       </svg>
 
-      <div class="legend">
-        <strong>Diagram legend</strong>
-        <ul class="legend-list">
-          <li><span class="key-dot"></span> Clickable pin nodes</li>
-          <li><span class="key-dot"></span> Pin blocks border the board</li>
-          <li><span class="key-dot"></span> Wires connect cleanly without overlap</li>
-        </ul>
+      <div class="legend personal-note">
+        <strong>About me</strong>
+        I am a rising sophomore at the University of Michigan- Ann Arbor. I am interested in both computer hardware and software engineering, and right now I am learning electronics with an Arduino ESP32 while building personal projects.
       </div>
 
       <div class="footer-notes">
-        <strong>Hardware schematic layout</strong>
-        The board rectangle is central, pin labels surround it, and the wires meet the pin nodes cleanly. This version keeps all smaller rectangles outside the traces so the diagram stays clear and stable.
+        <strong>What I am working on</strong>
+        This board is one of my current starting points for turning ideas into something I can actually test, change, and build on.
       </div>
       </section>
     </section>

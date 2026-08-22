@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My favorite personal things!</title>
+  <style>
+    :root {
+      --maize: #ffcb05;
+      --blue: #00274c;
+      --text: #1f2933;
+      --muted: #44515f;
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 32px 20px;
+      background: #f6f8fa;
+      color: var(--text);
+    }
+
+    .personal-things {
+      width: min(1040px, 100%);
+      margin: 0 auto;
+      padding: 48px clamp(24px, 5vw, 64px) 60px;
+      border: 1px solid #d8dee4;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 12px 28px rgba(31, 41, 51, 0.08);
+    }
+
+    h1 {
+      margin: 0 0 24px;
+      color: var(--blue);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.1;
+      text-align: center;
+    }
+
+    .intro {
+      margin: 0 auto 48px;
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 1.15rem;
+      line-height: 1.65;
+      text-align: center;
+    }
+
+    .intro p {
+      margin: 0 0 12px;
+    }
+
+    .intro p:last-child {
+      margin-bottom: 0;
+    }
+
+    .favorites-section {
+      padding-top: 34px;
+      border-top: 1px solid #d8dee4;
+    }
+
+    .favorites-section + .favorites-section {
+      margin-top: 48px;
+    }
+
+    h2 {
+      margin: 0 0 22px;
+      color: var(--blue);
+      font-size: clamp(1.55rem, 3vw, 2.15rem);
+      line-height: 1.2;
+    }
+
+    .favorites-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .favorite-card {
+      min-width: 0;
+      opacity: 0;
+      animation: reveal-card 600ms ease forwards;
+      animation-delay: var(--delay);
+    }
+
+    .cover {
+      position: relative;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: flex-end;
+      padding: 14px;
+      border: 1px solid rgba(0, 39, 76, 0.18);
+      border-radius: 6px;
+      color: #ffffff;
+      box-shadow: 0 8px 16px rgba(31, 41, 51, 0.14);
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.1;
+      overflow: hidden;
+    }
+
+    .cover img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cover span {
+      position: relative;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    }
+
+    .cover-heaven { background: linear-gradient(145deg, #c9a5cf, #563d75 58%, #1e294c); }
+    .cover-loveless { background: linear-gradient(145deg, #f4d8dc, #b34e64 55%, #4b1c35); }
+    .cover-rest { background: linear-gradient(145deg, #f2c65c, #bd5e3c 55%, #392338); }
+    .cover-die { background: linear-gradient(145deg, #d7e4ea, #667f91 55%, #182c3b); }
+    .cover-bloom { background: linear-gradient(145deg, #a9d7d0, #4f8b84 55%, #21494c); }
+    .cover-fallout { background: linear-gradient(145deg, #d7bd66, #8a5a36 55%, #293a3c); }
+    .cover-yakuza { background: linear-gradient(145deg, #df4d38, #8e1c2d 55%, #241c2b); }
+    .cover-metroid { background: linear-gradient(145deg, #65c5c5, #1c6684 55%, #102a52); }
+    .cover-ghost { background: linear-gradient(145deg, #e4b56f, #9c5a55 55%, #3e314b); }
+    .cover-neo { background: linear-gradient(145deg, #e86c87, #704a9a 55%, #252c64); }
+    .cover-parasite { background: linear-gradient(145deg, #d9e2d4, #6f8c74 55%, #263f37); }
+    .cover-whiplash { background: linear-gradient(145deg, #e0b75f, #a65339 55%, #2f2223); }
+    .cover-goodfellas { background: linear-gradient(145deg, #d6b18e, #8b4c3e 55%, #30252a); }
+    .cover-rocky { background: linear-gradient(145deg, #c7d5dc, #6b8291 55%, #263b4b); }
+    .cover-terminator { background: linear-gradient(145deg, #9bb6c2, #3b586a 55%, #111c2b); }
+
+    .favorite-title {
+      min-height: 2.6em;
+      margin: 12px 0 8px;
+      color: var(--text);
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .review-box {
+      min-height: 74px;
+      border: 1px solid #b8c4cf;
+      border-radius: 5px;
+      background: rgba(246, 248, 250, 0.72);
+    }
+
+    @keyframes reveal-card {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .personal-things {
+        padding: 36px 20px 44px;
+      }
+
+      .favorites-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px 14px;
+      }
+
+      .favorites-section + .favorites-section {
+        margin-top: 36px;
+      }
+
+      .cover {
+        padding: 10px;
+        font-size: 0.92rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="personal-things">
+    <h1>My favorite personal things!</h1>
+    <div class="intro">
+      <p>My name is Sohaib Ali. I have an interest in both computer hardware and software engineering.</p>
+      <p>I am a rising sophomore at the University of Michigan- Ann Arbor. Currently, I am learning electronics using an Arduino ESP32 and building personal projects.</p>
+    </div>
+
+    <section class="favorites-section" aria-labelledby="albums-heading">
+      <h2 id="albums-heading">Favorite Albums</h2>
+      <div class="favorites-grid">
+        <article class="favorite-card" style="--delay: 80ms">
+          <div class="cover cover-heaven"><img src="https://en.wikipedia.org/wiki/Special:FilePath/Cocteau%20Twins%E2%80%94Heaven%20or%20Las%20Vegas.jpg" alt="Heaven or Las Vegas official album cover"><span>Heaven or<br>Las Vegas</span></div>
+          <div class="favorite-title">Heaven or Las Vegas</div>
+          <div class="review-box" aria-label="Empty review box"></div>
+        </article>
+        <article class="favorite-card" style="--delay: 160ms">
+          <div class="cover cover-loveless"><img src="https://en.wikipedia.org/wiki/Special:FilePath/My%20Bloody%20Valentine%20-%20Loveless.png" alt="Loveless official album cover"><span>Loveless</span></div>
+          <div class="favorite-title">Loveless</div>
+          <div class="review-box" aria-label="Empty review box"></div>
+        </article>
+        <article class="favorite-card" style="--delay: 240ms">
+          <div class="cover cover-rest"><img src="https://en.wikipedia.org/wiki/Special:FilePath/Rest_in_Bass_(PG-13)_Cover.jpg" alt="Rest in Bass PG-13 official album cover"><span>Rest in Bass<br>(PG-13)</span></div>
+          <div class="favorite-title">Rest in Bass (PG-13 Cover)</div>
+          <div class="review-box" aria-label="Empty review box"></div>
+        </article>
+        <article class="favorite-card" style="--delay: 320ms">
+          <div class="cover cover-die"><img src="https://en.wikipedia.org/wiki/Special:FilePath/Die_Lit_by_Playboi_Carti.jpg" alt="Die Lit official album cover"><span>Die Lit</span></div>
+          <div class="favorite-title">Die Lit</div>
+          <div class="review-box" aria-label="Empty review box"></div>
+        </article>
+        <article class="favorite-card" style="--delay: 400ms">
+          <div class="cover cover-bloom"><img src="https://en.wikipedia.org/wiki/Special:FilePath/Beach%20House%20-%20Bloom.png" alt="Bloom official album cover"><span>Bloom</span></div>
+          <div class="favorite-title">Bloom</div>
+          <div class="review-box" aria-label="Empty review box"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="favorites-section" aria-labelledby="games-heading">
+      <h2 id="games-heading">Favorite Video Games</h2>
+      <div class="favorites-grid">
+        <article class="favorite-card" style="--delay: 80ms">
+          <div class="cover cover-fallout"><img src="https://en.wikipedia.org/wiki/Special:FilePath/Fallout_New_Vegas_cover.jpg" alt="Fallout New Vegas official game cover"><span>Fallout<br>New Vegas</span></div>
+          <div class="favorite-title">Fallout New Vegas</div>
+          <div class="review-box" aria-label="Empty review box"></div>
+        </article>
+        <article class="favorite-card" style="--delay: 160ms">
+          <div class="cover cover-yakuza"><img src="https://en.wikipedia.org/wiki/Special:FilePath/Yakuza0.jpg" alt="Yakuza 0 official game cover"><span>Yakuza 0</span></div>
+          <div class="favorite-title">Yakuza 0</div>
+          <div class="review-box" aria-label="Empty review box"></div>
+        </article>
+        <article class="favorite-card" style="--delay: 240ms">
+          <div class="cover cover-metroid"><img src="https://en.wikipedia.org/wiki/Special:FilePath/Echoesboxart%20(Large).jpg" alt="Metroid Prime Echoes official game cover"><span>Metroid Prime:<br>Echoes</span></div>
+          <div class="favorite-title">Metroid Prime: Echoes</div>
+          <div class="review-box" aria-label="Empty review box"></div>
+        </article>
+        <article class="favorite-card" style="--delay: 320ms">
+          <div class="cover cover-ghost"><img src="https://en.wikipedia.org/wiki/Special:FilePath/Ghost%20Trick%20Phantom%20Detective%20cover%20art.jpg" alt="Ghost Trick Phantom Detective official game cover"><span>Ghost Trick:<br>Phantom Detective</span></div>
+          <div class="favorite-title">Ghost Trick: Phantom Detective</div>
+          <div class="review-box" aria-label="Empty review box"></div>
+        </article>
+        <article class="favorite-card" style="--delay: 400ms">
+          <div class="cover cover-neo"><img src="https://en.wikipedia.org/wiki/Special:FilePath/Neotheworld.jpg" alt="NEO The World Ends With You official game cover"><span>NEO: The World<br>Ends With You</span></div>
+          <div class="favorite-title">NEO: The World Ends With You</div>
+          <div class="review-box" aria-label="Empty review box"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="favorites-section" aria-labelledby="movies-heading">
+      <h2 id="movies-heading">Favorite Movies</h2>
+      <div class="favorites-grid">
+        <article class="favorite-card" style="--delay: 80ms">
+          <div class="cover cover-parasite"><img src="https://en.wikipedia.org/wiki/Special:FilePath/Parasite%20(2019%20film).png" alt="Parasite official movie poster"><span>Parasite</span></div>
+          <div class="favorite-title">Parasite</div>
+          <div class="review-box" aria-label="Empty review box"></div>
+        </article>
+        <article class="favorite-card" style="--delay: 160ms">
+          <div class="cover cover-whiplash"><img src="https://en.wikipedia.org/wiki/Special:FilePath/Whiplash%20poster.jpg" alt="Whiplash official movie poster"><span>Whiplash</span></div>
+          <div class="favorite-title">Whiplash</div>
+          <div class="review-box" aria-label="Empty review box"></div>
+        </article>
+        <article class="favorite-card" style="--delay: 240ms">
+          <div class="cover cover-goodfellas"><img src="https://en.wikipedia.org/wiki/Special:FilePath/Goodfellas.jpg" alt="Goodfellas official movie poster"><span>Goodfellas</span></div>
+          <div class="favorite-title">Goodfellas</div>
+          <div class="review-box" aria-label="Empty review box"></div>
+        </article>
+        <article class="favorite-card" style="--delay: 320ms">
+          <div class="cover cover-rocky"><img src="https://en.wikipedia.org/wiki/Special:FilePath/Rocky_poster.jpg" alt="Rocky official movie poster"><span>Rocky</span></div>
+          <div class="favorite-title">Rocky</div>
+          <div class="review-box" aria-label="Empty review box"></div>
+        </article>
+        <article class="favorite-card" style="--delay: 400ms">
+          <div class="cover cover-terminator"><img src="https://en.wikipedia.org/wiki/Special:FilePath/Terminator%202-Judgment%20Day.png" alt="Terminator 2 official movie poster"><span>Terminator 2</span></div>
+          <div class="favorite-title">Terminator 2</div>
+          <div class="review-box" aria-label="Empty review box"></div>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
