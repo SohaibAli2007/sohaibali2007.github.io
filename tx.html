@@ -3,120 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My favorite personal things!</title>
+  <title>Favorite things | Sohaib Ali</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --maize: #ffcb05;
-      --blue: #00274c;
-      --text: #1f2933;
-      --muted: #44515f;
-      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      min-height: 100vh;
-      margin: 0;
-      padding: 32px 20px;
-      background: #f6f8fa;
-      color: var(--text);
-    }
-
-    .personal-things {
-      width: min(1040px, 100%);
-      margin: 0 auto;
-      padding: 48px clamp(24px, 5vw, 64px) 60px;
-      border: 1px solid #d8dee4;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.9);
-      box-shadow: 0 12px 28px rgba(31, 41, 51, 0.08);
-    }
-
-    h1 {
-      margin: 0 0 24px;
-      color: var(--blue);
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      line-height: 1.1;
-      text-align: center;
-    }
-
-    .intro {
-      margin: 0 auto 48px;
-      max-width: 620px;
-      color: var(--muted);
-      font-size: 1.15rem;
-      line-height: 1.65;
-      text-align: center;
-    }
-
-    .intro p {
-      margin: 0 0 12px;
-    }
-
-    .intro p:last-child {
-      margin-bottom: 0;
-    }
-
-    .favorites-section {
-      padding-top: 34px;
-      border-top: 1px solid #d8dee4;
-    }
-
-    .favorites-section + .favorites-section {
-      margin-top: 48px;
-    }
-
-    h2 {
-      margin: 0 0 22px;
-      color: var(--blue);
-      font-size: clamp(1.55rem, 3vw, 2.15rem);
-      line-height: 1.2;
-    }
-
-    .favorites-grid {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .favorite-card {
-      min-width: 0;
-      opacity: 0;
-      animation: reveal-card 600ms ease forwards;
-      animation-delay: var(--delay);
-    }
-
-    .cover {
-      position: relative;
-      aspect-ratio: 1;
-      display: flex;
-      align-items: flex-end;
-      padding: 14px;
-      border: 1px solid rgba(0, 39, 76, 0.18);
-      border-radius: 6px;
-      color: #ffffff;
-      box-shadow: 0 8px 16px rgba(31, 41, 51, 0.14);
-      font-size: 1.05rem;
-      font-weight: 700;
-      line-height: 1.1;
-      overflow: hidden;
-    }
-
-    .cover img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .cover span {
-      position: relative;
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-    }
+    :root { --ink: #102a43; --muted: #52606d; --paper: #f5f2ea; --yellow: #f6c945; --coral: #ef8354; font-family: "Space Grotesk", sans-serif; }
+    * { box-sizing: border-box; }
+    body { min-height: 100vh; margin: 0; padding: 32px; color: var(--ink); background-color: var(--paper); background-image: linear-gradient(rgba(16,42,67,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(16,42,67,.045) 1px, transparent 1px); background-size: 34px 34px; }
+    .personal-things { width: min(1120px, 100%); margin: 0 auto; padding: 48px clamp(24px, 5vw, 64px) 64px; border: 1.5px solid var(--ink); background: rgba(255,253,247,.78); box-shadow: 12px 12px 0 var(--yellow); }
+    .kicker { margin: 0 0 22px; color: var(--coral); font: 500 .78rem "DM Mono", monospace; letter-spacing: .08em; text-transform: uppercase; }
+    h1 { max-width: 760px; margin: 0 0 24px; color: var(--ink); font-size: clamp(3rem, 7vw, 5.6rem); font-weight: 600; letter-spacing: -.055em; line-height: .94; }
+    .intro { max-width: 650px; margin: 0 0 56px; color: var(--muted); font-size: clamp(1rem, 1.45vw, 1.1rem); line-height: 1.7; }
+    .intro p { margin: 0 0 12px; }
+    .intro p:last-child { margin-bottom: 0; }
+    .favorites-section { padding-top: 28px; border-top: 1.5px solid var(--ink); }
+    .favorites-section + .favorites-section { margin-top: 48px; }
+    .section-label { margin: 0 0 10px; color: var(--coral); font: 500 .75rem "DM Mono", monospace; letter-spacing: .08em; text-transform: uppercase; }
+    h2 { max-width: 800px; margin: 0 0 24px; color: var(--ink); font-size: clamp(1.7rem, 3.5vw, 2.65rem); font-weight: 600; letter-spacing: -.04em; line-height: 1.05; }
+    .favorites-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 28px; }
+    .favorite-card { min-width: 0; opacity: 0; animation: reveal-card 600ms ease forwards; animation-delay: var(--delay); }
+    .cover { position: relative; aspect-ratio: 1; display: flex; align-items: flex-end; width: 100%; max-width: 320px; margin: 0 auto; padding: 12px; border: 1.5px solid var(--ink); border-radius: 10px; color: #fff; overflow: hidden; }
+    .cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .cover span { position: relative; font-size: 1rem; font-weight: 600; line-height: 1.1; text-shadow: 0 1px 3px rgba(0, 0, 0, .4); }
 
     .cover-heaven { background: linear-gradient(145deg, #c9a5cf, #563d75 58%, #1e294c); }
     .cover-loveless { background: linear-gradient(145deg, #f4d8dc, #b34e64 55%, #4b1c35); }
@@ -134,154 +43,81 @@
     .cover-rocky { background: linear-gradient(145deg, #c7d5dc, #6b8291 55%, #263b4b); }
     .cover-terminator { background: linear-gradient(145deg, #9bb6c2, #3b586a 55%, #111c2b); }
 
-    .favorite-title {
-      min-height: 2.6em;
-      margin: 12px 0 8px;
-      color: var(--text);
-      font-size: 1rem;
-      font-weight: 700;
-      line-height: 1.3;
-    }
-
-    .review-box {
-      min-height: 74px;
-      border: 1px solid #b8c4cf;
-      border-radius: 5px;
-      background: rgba(246, 248, 250, 0.72);
-    }
-
-    @keyframes reveal-card {
-      from {
-        opacity: 0;
-        transform: translateY(12px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media (max-width: 600px) {
-      .personal-things {
-        padding: 36px 20px 44px;
-      }
-
-      .favorites-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 20px 14px;
-      }
-
-      .favorites-section + .favorites-section {
-        margin-top: 36px;
-      }
-
-      .cover {
-        padding: 10px;
-        font-size: 0.92rem;
-      }
-    }
+    .favorite-title { margin: 12px 0 8px; color: var(--ink); font-size: 1.15rem; font-weight: 600; line-height: 1.3; }
+    .review-box { min-height: 96px; border: 1.5px solid #9aa8b5; background: rgba(255,253,247,.72); }
+    .thought-box { width: 100%; min-height: 126px; margin-top: 34px; padding: 14px; resize: vertical; border: 1.5px solid #9aa8b5; outline: 0; color: var(--ink); background: rgba(255,253,247,.72); font: 1rem/1.55 "Space Grotesk", sans-serif; }
+    .thought-box:focus { border-color: var(--coral); }
+    .thought-box::placeholder { color: #7b8794; }
+    #albums-section .review-box { grid-column: 1 / -1; width: 100%; min-height: 126px; margin-top: 10px; }
+    #games-section .favorites-grid, #movies-section .favorites-grid { grid-template-columns: 1fr; }
+    #games-section .favorite-card, #movies-section .favorite-card { display: grid; align-items: center; gap: clamp(28px, 6vw, 72px); }
+    #games-section .favorite-card { grid-template-columns: minmax(280px, 320px) minmax(0, 1fr); }
+    #games-section .favorite-card .cover { grid-column: 1; grid-row: 1; }
+    #games-section .favorite-card .favorite-info { grid-column: 2; grid-row: 1; }
+    #movies-section .favorite-card { grid-template-columns: minmax(0, 1fr) minmax(280px, 320px); }
+    #movies-section .favorite-card .cover { grid-column: 2; grid-row: 1; }
+    #movies-section .favorite-card .favorite-info { grid-column: 1; grid-row: 1; text-align: right; }
+    #games-section .cover, #movies-section .cover { aspect-ratio: 2 / 3; }
+    #games-section .cover img, #movies-section .cover img { object-fit: contain; background: #2f2223; }
+    .favorite-info { display: flex; flex-direction: column; gap: 14px; }
+    .favorite-info .favorite-title { margin: 0; }
+    .favorite-info .review-box { width: 100%; }
+    .back-link { display: inline-block; margin-top: 54px; color: var(--ink); font-size: .95rem; font-weight: 600; }
+    @keyframes reveal-card { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 600px) { body { padding: 22px; } .personal-things { padding: 36px 20px 50px; box-shadow: 8px 8px 0 var(--yellow); } .favorites-grid { grid-template-columns: 1fr; gap: 28px; } #games-section .favorite-card, #movies-section .favorite-card { grid-template-columns: 1fr; gap: 10px; } #games-section .favorite-card .cover, #movies-section .favorite-card .cover, #games-section .favorite-card .favorite-info, #movies-section .favorite-card .favorite-info { grid-column: 1; } #games-section .favorite-card .favorite-info, #movies-section .favorite-card .favorite-info { text-align: left; } h1 { font-size: clamp(2.8rem, 14vw, 4.5rem); } h2 { font-size: clamp(1.65rem, 8vw, 2.2rem); } .favorites-section + .favorites-section { margin-top: 38px; } }
+    @media (prefers-reduced-motion: reduce) { .favorite-card { animation: none; opacity: 1; } }
   </style>
 </head>
 <body>
   <main class="personal-things">
+    <p class="kicker">Sohaib Ali / Personal archive</p>
     <h1>My favorite personal things!</h1>
     <div class="intro">
-      <p>My name is Sohaib Ali. I have an interest in both computer hardware and software engineering.</p>
-      <p>I am a rising sophomore at the University of Michigan- Ann Arbor. Currently, I am learning electronics using an Arduino ESP32 and building personal projects.</p>
+      <p>Throughout my journey, I've always had things that kept me moving forward. Whether it's listening to an etheral album, exploring the complexities of certain video games, and stepping into the protagonist's shoes in a movie, these pieces of media have always been something I've wanted to talk about- and how each and every one of them are special.</p>
     </div>
 
-    <section class="favorites-section" aria-labelledby="albums-heading">
-      <h2 id="albums-heading">Favorite Albums</h2>
+    <section id="albums-section" class="favorites-section" aria-labelledby="albums-heading">
+      <p class="section-label">Personal archive / Favorite Albums</p>
+      <h2 id="albums-heading">Heaven or Las Vegas &amp; Loveless</h2>
       <div class="favorites-grid">
         <article class="favorite-card" style="--delay: 80ms">
           <div class="cover cover-heaven"><img src="https://en.wikipedia.org/wiki/Special:FilePath/Cocteau%20Twins%E2%80%94Heaven%20or%20Las%20Vegas.jpg" alt="Heaven or Las Vegas official album cover"><span>Heaven or<br>Las Vegas</span></div>
-          <div class="favorite-title">Heaven or Las Vegas</div>
-          <div class="review-box" aria-label="Empty review box"></div>
         </article>
         <article class="favorite-card" style="--delay: 160ms">
           <div class="cover cover-loveless"><img src="https://en.wikipedia.org/wiki/Special:FilePath/My%20Bloody%20Valentine%20-%20Loveless.png" alt="Loveless official album cover"><span>Loveless</span></div>
-          <div class="favorite-title">Loveless</div>
-          <div class="review-box" aria-label="Empty review box"></div>
+          
         </article>
-        <article class="favorite-card" style="--delay: 240ms">
-          <div class="cover cover-rest"><img src="https://en.wikipedia.org/wiki/Special:FilePath/Rest_in_Bass_(PG-13)_Cover.jpg" alt="Rest in Bass PG-13 official album cover"><span>Rest in Bass<br>(PG-13)</span></div>
-          <div class="favorite-title">Rest in Bass (PG-13 Cover)</div>
-          <div class="review-box" aria-label="Empty review box"></div>
+      </div>
+      <div class="review-box" aria-label="Empty review box for favorite albums"></div>
+    </section>
+
+    <section id="games-section" class="favorites-section" aria-labelledby="games-heading">
+      <p class="section-label">Personal archive / Favorite Games</p>
+      <div class="favorites-grid">
+        <article class="favorite-card" style="--delay: 80ms">
+          <div class="cover cover-fallout"><img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Free_depiction_of_the_Fallout_New_Vegas_Xbox_360_box_art_%28cropped%29.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled" alt="Fallout New Vegas official game cover"></div>
+          <div class="favorite-info">
+            <div class="favorite-title">Fallout New Vegas</div>
+            <div class="review-box" aria-label="Empty review box"></div>
+          </div>
         </article>
-        <article class="favorite-card" style="--delay: 320ms">
-          <div class="cover cover-die"><img src="https://en.wikipedia.org/wiki/Special:FilePath/Die_Lit_by_Playboi_Carti.jpg" alt="Die Lit official album cover"><span>Die Lit</span></div>
-          <div class="favorite-title">Die Lit</div>
-          <div class="review-box" aria-label="Empty review box"></div>
-        </article>
-        <article class="favorite-card" style="--delay: 400ms">
-          <div class="cover cover-bloom"><img src="https://en.wikipedia.org/wiki/Special:FilePath/Beach%20House%20-%20Bloom.png" alt="Bloom official album cover"><span>Bloom</span></div>
-          <div class="favorite-title">Bloom</div>
-          <div class="review-box" aria-label="Empty review box"></div>
-        </article>
+
       </div>
     </section>
 
-    <section class="favorites-section" aria-labelledby="games-heading">
-      <h2 id="games-heading">Favorite Video Games</h2>
+    <section id="movies-section" class="favorites-section" aria-labelledby="movies-heading">
+      <p class="section-label">Personal archive / Movies</p>
       <div class="favorites-grid">
-        <article class="favorite-card" style="--delay: 80ms">
-          <div class="cover cover-fallout"><img src="https://en.wikipedia.org/wiki/Special:FilePath/Fallout_New_Vegas_cover.jpg" alt="Fallout New Vegas official game cover"><span>Fallout<br>New Vegas</span></div>
-          <div class="favorite-title">Fallout New Vegas</div>
-          <div class="review-box" aria-label="Empty review box"></div>
-        </article>
-        <article class="favorite-card" style="--delay: 160ms">
-          <div class="cover cover-yakuza"><img src="https://en.wikipedia.org/wiki/Special:FilePath/Yakuza0.jpg" alt="Yakuza 0 official game cover"><span>Yakuza 0</span></div>
-          <div class="favorite-title">Yakuza 0</div>
-          <div class="review-box" aria-label="Empty review box"></div>
-        </article>
-        <article class="favorite-card" style="--delay: 240ms">
-          <div class="cover cover-metroid"><img src="https://en.wikipedia.org/wiki/Special:FilePath/Echoesboxart%20(Large).jpg" alt="Metroid Prime Echoes official game cover"><span>Metroid Prime:<br>Echoes</span></div>
-          <div class="favorite-title">Metroid Prime: Echoes</div>
-          <div class="review-box" aria-label="Empty review box"></div>
-        </article>
-        <article class="favorite-card" style="--delay: 320ms">
-          <div class="cover cover-ghost"><img src="https://en.wikipedia.org/wiki/Special:FilePath/Ghost%20Trick%20Phantom%20Detective%20cover%20art.jpg" alt="Ghost Trick Phantom Detective official game cover"><span>Ghost Trick:<br>Phantom Detective</span></div>
-          <div class="favorite-title">Ghost Trick: Phantom Detective</div>
-          <div class="review-box" aria-label="Empty review box"></div>
-        </article>
-        <article class="favorite-card" style="--delay: 400ms">
-          <div class="cover cover-neo"><img src="https://en.wikipedia.org/wiki/Special:FilePath/Neotheworld.jpg" alt="NEO The World Ends With You official game cover"><span>NEO: The World<br>Ends With You</span></div>
-          <div class="favorite-title">NEO: The World Ends With You</div>
-          <div class="review-box" aria-label="Empty review box"></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="favorites-section" aria-labelledby="movies-heading">
-      <h2 id="movies-heading">Favorite Movies</h2>
-      <div class="favorites-grid">
-        <article class="favorite-card" style="--delay: 80ms">
-          <div class="cover cover-parasite"><img src="https://en.wikipedia.org/wiki/Special:FilePath/Parasite%20(2019%20film).png" alt="Parasite official movie poster"><span>Parasite</span></div>
-          <div class="favorite-title">Parasite</div>
-          <div class="review-box" aria-label="Empty review box"></div>
-        </article>
         <article class="favorite-card" style="--delay: 160ms">
           <div class="cover cover-whiplash"><img src="https://en.wikipedia.org/wiki/Special:FilePath/Whiplash%20poster.jpg" alt="Whiplash official movie poster"><span>Whiplash</span></div>
-          <div class="favorite-title">Whiplash</div>
-          <div class="review-box" aria-label="Empty review box"></div>
-        </article>
-        <article class="favorite-card" style="--delay: 240ms">
-          <div class="cover cover-goodfellas"><img src="https://en.wikipedia.org/wiki/Special:FilePath/Goodfellas.jpg" alt="Goodfellas official movie poster"><span>Goodfellas</span></div>
-          <div class="favorite-title">Goodfellas</div>
-          <div class="review-box" aria-label="Empty review box"></div>
-        </article>
-        <article class="favorite-card" style="--delay: 320ms">
-          <div class="cover cover-rocky"><img src="https://en.wikipedia.org/wiki/Special:FilePath/Rocky_poster.jpg" alt="Rocky official movie poster"><span>Rocky</span></div>
-          <div class="favorite-title">Rocky</div>
-          <div class="review-box" aria-label="Empty review box"></div>
-        </article>
-        <article class="favorite-card" style="--delay: 400ms">
-          <div class="cover cover-terminator"><img src="https://en.wikipedia.org/wiki/Special:FilePath/Terminator%202-Judgment%20Day.png" alt="Terminator 2 official movie poster"><span>Terminator 2</span></div>
-          <div class="favorite-title">Terminator 2</div>
-          <div class="review-box" aria-label="Empty review box"></div>
+          <div class="favorite-info">
+            <div class="favorite-title">Whiplash</div>
+            <div class="review-box" aria-label="Empty review box"></div>
+          </div>
         </article>
       </div>
     </section>
+    <a class="back-link" href="index.html">Back to the home page ↗</a>
   </main>
 </body>
 </html>
